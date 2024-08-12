@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwp2bfk6d1t6s"]
+
+[ext_resource type="Texture2D" uid="uid://by3pj775l43je" path="res://assets/sprites/background.png" id="1_kjpkm"]
+[ext_resource type="Texture2D" uid="uid://dfscrsiy16b6b" path="res://assets/sprites/grid.png" id="2_biqxr"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0.124961, -0.124996)
+scale = Vector2(35.9922, 20.2578)
+texture = ExtResource("1_kjpkm")
+
+[node name="Camera2D" type="Camera2D" parent="Background"]
+position = Vector2(-0.00347189, 0.00617027)
+scale = Vector2(0.0277838, 0.0493637)
+
+[node name="Grid" type="Sprite2D" parent="."]
+position = Vector2(0, -81)
+scale = Vector2(11.997, 11.997)
+texture = ExtResource("2_biqxr")
