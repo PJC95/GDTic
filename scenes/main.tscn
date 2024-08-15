@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwp2bfk6d1t6s"]
+[gd_scene load_steps=6 format=3 uid="uid://cwp2bfk6d1t6s"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_5olbh"]
 [ext_resource type="Texture2D" uid="uid://by3pj775l43je" path="res://assets/sprites/background.png" id="1_kjpkm"]
 [ext_resource type="Texture2D" uid="uid://dfscrsiy16b6b" path="res://assets/sprites/grid.png" id="2_biqxr"]
+[ext_resource type="PackedScene" uid="uid://b2asx7oll6cxj" path="res://scenes/o.tscn" id="5_k8wbj"]
+[ext_resource type="PackedScene" uid="uid://hno083gto2fs" path="res://scenes/x.tscn" id="6_debft"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_5olbh")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(0.124961, -0.124996)
+position = Vector2(2, -3)
 scale = Vector2(35.9922, 20.2578)
 texture = ExtResource("1_kjpkm")
 
@@ -18,3 +22,108 @@ scale = Vector2(0.0277838, 0.0493637)
 position = Vector2(0, -81)
 scale = Vector2(11.997, 11.997)
 texture = ExtResource("2_biqxr")
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="P1Label" type="Label" parent="Labels"]
+offset_left = -176.0
+offset_top = 160.0
+offset_right = -81.0
+offset_bottom = 183.0
+text = "PLAYER 1 (*)"
+
+[node name="P1WinCount" type="Label" parent="Labels/P1Label"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 47.0
+text = "0"
+
+[node name="P2Label" type="Label" parent="Labels"]
+offset_left = 80.0
+offset_top = 160.0
+offset_right = 175.0
+offset_bottom = 183.0
+text = "PLAYER 2 (*)"
+
+[node name="P2WinCount" type="Label" parent="Labels/P2Label"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 47.0
+text = "0"
+
+[node name="TieLabel" type="Label" parent="Labels"]
+offset_left = -16.0
+offset_top = 160.0
+offset_right = 72.0
+offset_bottom = 183.0
+text = "TIE"
+
+[node name="TieCount" type="Label" parent="Labels/TieLabel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 48.0
+offset_bottom = 47.0
+text = "0"
+
+[node name="Xs" type="Node" parent="."]
+
+[node name="X" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(-127, 48)
+
+[node name="X2" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(0, 48)
+
+[node name="X3" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(127, 48)
+
+[node name="X4" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(-127, -81)
+
+[node name="X5" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(0, -81)
+
+[node name="X6" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(127, -81)
+
+[node name="X7" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(-127, -209)
+
+[node name="X8" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(2, -209)
+
+[node name="X9" parent="Xs" instance=ExtResource("6_debft")]
+position = Vector2(127, -209)
+
+[node name="Os" type="Node" parent="."]
+
+[node name="O" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(-127, 48)
+
+[node name="O2" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(0, 48)
+
+[node name="O3" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(127, 48)
+
+[node name="O4" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(-127, -81)
+
+[node name="O5" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(0, -81)
+
+[node name="O6" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(127, -81)
+
+[node name="O7" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(-127, -209)
+
+[node name="O8" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(2, -209)
+
+[node name="O9" parent="." instance=ExtResource("5_k8wbj")]
+position = Vector2(127, -209)
