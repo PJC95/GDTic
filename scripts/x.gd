@@ -15,7 +15,7 @@ func _input(InputEvent):
 			
 # If cursor is in node's area and left mouse is pressed, make the sprite visible
 func _process(_delta):
-	if mouse_in_area and left_mouse_pressed:
+	if mouse_in_area and left_mouse_pressed and GameManager.chose_x == true:
 		$Area2D/Sprite2D.visible = true
 		
 func _on_area_2d_mouse_entered():
