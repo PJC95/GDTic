@@ -1,10 +1,10 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	$VBoxContainer/StartButton.grab_focus()
 
-func _on_start_button_pressed():
+func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/choose_side.tscn")
 
-func _on_quit_button_pressed():
+func _on_quit_button_pressed() -> void:
 	get_tree().quit()
