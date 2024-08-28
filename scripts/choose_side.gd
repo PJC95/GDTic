@@ -2,7 +2,7 @@ extends Control
 
 func _on_choice_x_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
-	GameManager.chose_x = true
+	GameManager.turn = "X"
 
 func _on_choice_o_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")

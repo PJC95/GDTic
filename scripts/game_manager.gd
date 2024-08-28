@@ -1,3 +1,3 @@
 extends Node
 
-var chose_x: bool = false
+var turn: String = "O"
