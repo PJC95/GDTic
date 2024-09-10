@@ -8,7 +8,7 @@ extends Node2D
 var left_mouse_pressed: bool = false
 var mouse_in_area: bool = false
 
-# Set node to be invisible by default
+# Set node to be invisible by default and allow O to be placed if they have the first turn
 func _ready() -> void:
 	sprite_2d.visible = false
 
@@ -18,18 +18,17 @@ func _input(InputEvent) -> void:
 		if InputEvent.button_index == MOUSE_BUTTON_LEFT:
 			left_mouse_pressed = InputEvent.pressed
 			
-# If cursor is in node's area, left mouse is pressed and it's O's turn, make the sprite visible
 func _process(_delta) -> void:
-	if mouse_in_area and left_mouse_pressed and GameManager.turn == "O" and can_be_placed == true:
+	if mouse_in_area and left_mouse_pressed and can_be_placed and GameManager.turn == "O":
 		sprite_2d.visible = true
 		is_placed = true
-		timer.start()
+		GameManager.turn = "X"
+		GameManager.check_if_placed()
+	
+	left_mouse_pressed = false
 		
 func _on_area_2d_mouse_entered() -> void: 
 	mouse_in_area = true
 	
 func _on_area_2d_mouse_exited() -> void:
 	mouse_in_area = false
-
-func _on_timer_timeout() -> void:
-	GameManager.turn = "X"

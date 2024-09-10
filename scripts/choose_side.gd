@@ -6,6 +6,7 @@ func _on_choice_x_pressed() -> void:
 
 func _on_choice_o_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	GameManager.turn = "O"
 	
 func _on_choice_x_mouse_entered() -> void:
 	$ChoiceX.grab_focus()
