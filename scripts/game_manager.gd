@@ -2,6 +2,7 @@ extends Node
 
 var turn: String = ""
 
+# Checks if O or X is placed on a grid space; if so, blocks opposite from being placed there
 func check_if_placed() -> void:
 	var array_x: Array = [$"../Main/Xs/X", $"../Main/Xs/X2", $"../Main/Xs/X3", $"../Main/Xs/X4", 
 	$"../Main/Xs/X5", $"../Main/Xs/X6", $"../Main/Xs/X7", $"../Main/Xs/X8", $"../Main/Xs/X9"]

@@ -8,11 +8,12 @@ extends Node2D
 var left_mouse_pressed: bool = false
 var mouse_in_area: bool = false
 
-# Set node to be invisible by default and allow O to be placed if they have the first turn
+# Set node to be invisible by default
 func _ready() -> void:
 	sprite_2d.visible = false
 
-# Checks if left mouse button is currently pressed during each frame
+# Checks if left mouse button is pressed
+# *** Change this to input map later ***
 func _input(InputEvent) -> void:
 	if InputEvent is InputEventMouseButton:
 		if InputEvent.button_index == MOUSE_BUTTON_LEFT:
