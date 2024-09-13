@@ -3,6 +3,9 @@ extends Node
 var turn: String = ""
 var x_win: String = "X wins!"
 var o_win: String = "O wins!"
+var x_win_count: int = 0
+var o_win_count: int = 0
+var tie_count: int = 0
 
 # Checks if O or X is placed on a grid space; if so, blocks opposite from being placed there
 func check_if_placed() -> void:
@@ -38,10 +41,14 @@ func check_if_won() -> void:
 	for condition in win_conditions:
 		if array_x[condition[0]].is_placed and array_x[condition[1]].is_placed and array_x[condition[2]].is_placed:
 			print(x_win)
+			x_win_count += 1
+			print("X wins: " + str(x_win_count))
 			return	# Exit the function if X wins
 			
 	# Check for O wins
 	for condition in win_conditions:
 		if array_o[condition[0]].is_placed and array_o[condition[1]].is_placed and array_o[condition[2]].is_placed:
 			print(o_win)
+			o_win_count += 1
+			print("O wins: " + str(o_win_count))
 			return # Exit the function if O wins
