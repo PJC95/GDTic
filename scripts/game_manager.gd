@@ -6,6 +6,8 @@ var o_win: String = "O wins!"
 var x_win_count: int = 0
 var o_win_count: int = 0
 var tie_count: int = 0
+var player_1 = ""
+var player_2 = ""
 
 # Checks if O or X is placed on a grid space; if so, blocks opposite from being placed there
 func check_if_placed() -> void:
@@ -30,6 +32,10 @@ func check_if_won() -> void:
 	var array_o: Array = [$"../Main/Os/O", $"../Main/Os/O2", $"../Main/Os/O3", $"../Main/Os/O4", 
 	$"../Main/Os/O5", $"../Main/Os/O6", $"../Main/Os/O7", $"../Main/Os/O8", $"../Main/Os/O9"]
 	
+	var p1_win_count_label = $"../Main/Labels/P1Label/P1WinCount"
+	var p2_win_count_label = $"../Main/Labels/P2Label/P2WinCount"
+	var tie_count_label = $"../Main/Labels/TieLabel/TieCount"
+	
 	# All possible win conditions (as indices in the array)
 	var win_conditions: Array = [
 		[0, 1, 2], [3, 4, 5], [6, 7, 8],	# Horizontal
@@ -42,7 +48,12 @@ func check_if_won() -> void:
 		if array_x[condition[0]].is_placed and array_x[condition[1]].is_placed and array_x[condition[2]].is_placed:
 			print(x_win)
 			x_win_count += 1
-			print("X wins: " + str(x_win_count))
+			
+			if player_1 == "X":
+				p1_win_count_label.text = (str(x_win_count))
+			elif player_2 == "X":
+				p2_win_count_label.text = (str(x_win_count))
+			
 			return	# Exit the function if X wins
 			
 	# Check for O wins
@@ -50,5 +61,10 @@ func check_if_won() -> void:
 		if array_o[condition[0]].is_placed and array_o[condition[1]].is_placed and array_o[condition[2]].is_placed:
 			print(o_win)
 			o_win_count += 1
-			print("O wins: " + str(o_win_count))
+			
+			if player_1 == "O":
+				p1_win_count_label.text = str(o_win_count)
+			elif player_2 == "O":
+				p2_win_count_label.text = str(o_win_count)
+			
 			return # Exit the function if O wins
