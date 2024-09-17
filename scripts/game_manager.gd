@@ -1,8 +1,6 @@
 extends Node
 
 var turn: String = ""
-var x_win: String = "X wins!"
-var o_win: String = "O wins!"
 var x_win_count: int = 0
 var o_win_count: int = 0
 var tie_count: int = 0
@@ -25,7 +23,8 @@ func check_if_placed() -> void:
 	for i in range(len(array_o)):
 		if array_o[i].is_placed:
 			array_x[i].can_be_placed = false
-			
+
+# Checks if someone has won; if so, adds a point to their score and plays an animation
 func check_if_won() -> void:
 	var array_x: Array = [$"../Main/Xs/X", $"../Main/Xs/X2", $"../Main/Xs/X3", $"../Main/Xs/X4", 
 	$"../Main/Xs/X5", $"../Main/Xs/X6", $"../Main/Xs/X7", $"../Main/Xs/X8", $"../Main/Xs/X9"]
@@ -42,29 +41,33 @@ func check_if_won() -> void:
 		[0, 3, 6], [1, 4, 7], [2, 5, 8],	# Vertical
 		[0, 4, 8], [2, 4, 6]				# Diagonal
 	]
-	
-	# Check for X wins
+
 	for condition in win_conditions:
 		if array_x[condition[0]].is_placed and array_x[condition[1]].is_placed and array_x[condition[2]].is_placed:
-			print(x_win)
 			x_win_count += 1
 			
 			if player_1 == "X":
 				p1_win_count_label.text = (str(x_win_count))
 			elif player_2 == "X":
 				p2_win_count_label.text = (str(x_win_count))
+				
+			array_x[condition[0]].animation_player.play("endgame")
+			array_x[condition[1]].animation_player.play("endgame")
+			array_x[condition[2]].animation_player.play("endgame")
 			
 			return	# Exit the function if X wins
 			
-	# Check for O wins
 	for condition in win_conditions:
 		if array_o[condition[0]].is_placed and array_o[condition[1]].is_placed and array_o[condition[2]].is_placed:
-			print(o_win)
 			o_win_count += 1
 			
 			if player_1 == "O":
 				p1_win_count_label.text = str(o_win_count)
 			elif player_2 == "O":
 				p2_win_count_label.text = str(o_win_count)
+				
+			array_o[condition[0]].animation_player.play("endgame")
+			array_o[condition[1]].animation_player.play("endgame")
+			array_o[condition[2]].animation_player.play("endgame")
 			
 			return # Exit the function if O wins

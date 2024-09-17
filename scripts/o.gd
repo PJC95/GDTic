@@ -4,6 +4,7 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @onready var is_placed: bool = false
 @onready var can_be_placed: bool = true
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var left_mouse_pressed: bool = false
 var mouse_in_area: bool = false

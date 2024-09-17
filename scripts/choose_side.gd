@@ -1,13 +1,13 @@
 extends Control
 
-# If X is chosen, change to main game scene with X taking the first turn
+# If X is chosen, change to main game scene, with X taking the first turn
 func _on_choice_x_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	GameManager.turn = "X"
 	GameManager.player_1 = "X"
 	GameManager.player_2 = "O"
 
-# If O is chosen, change to main game scene with O taking the first turn
+# If O is chosen, change to main game scene, with O taking the first turn
 func _on_choice_o_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	GameManager.turn = "O"

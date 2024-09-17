@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://hno083gto2fs"]
+[gd_scene load_steps=7 format=3 uid="uid://hno083gto2fs"]
 
 [ext_resource type="Texture2D" uid="uid://c7qpk5egryi1q" path="res://assets/sprites/X.png" id="1_48n7c"]
 [ext_resource type="Script" path="res://scripts/x.gd" id="1_yua2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyomy"]
 size = Vector2(94, 94)
+
+[sub_resource type="Animation" id="Animation_17kh5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xsb7f"]
+resource_name = "endgame"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kg7i"]
+_data = {
+"RESET": SubResource("Animation_17kh5"),
+"endgame": SubResource("Animation_xsb7f")
+}
 
 [node name="X" type="Node2D"]
 script = ExtResource("1_yua2l")
@@ -21,6 +58,11 @@ shape = SubResource("RectangleShape2D_tyomy")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7kg7i")
+}
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
