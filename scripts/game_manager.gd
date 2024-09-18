@@ -6,6 +6,7 @@ var o_win_count: int = 0
 var tie_count: int = 0
 var player_1 = ""
 var player_2 = ""
+var grid_count: int = 0
 
 # Checks if O or X is placed on a grid space; if so, blocks opposite from being placed there
 func check_if_placed() -> void:
@@ -24,7 +25,7 @@ func check_if_placed() -> void:
 		if array_o[i].is_placed:
 			array_x[i].can_be_placed = false
 
-# Checks if someone has won; if so, adds a point to their score and plays an animation
+# Check for a win or tie, then add a point to the respective counter and play an animation
 func check_if_won() -> void:
 	var array_x: Array = [$"../Main/Xs/X", $"../Main/Xs/X2", $"../Main/Xs/X3", $"../Main/Xs/X4", 
 	$"../Main/Xs/X5", $"../Main/Xs/X6", $"../Main/Xs/X7", $"../Main/Xs/X8", $"../Main/Xs/X9"]
@@ -42,6 +43,7 @@ func check_if_won() -> void:
 		[0, 4, 8], [2, 4, 6]				# Diagonal
 	]
 
+	# Check for X win, and if they did win: add a point and play an animation
 	for condition in win_conditions:
 		if array_x[condition[0]].is_placed and array_x[condition[1]].is_placed and array_x[condition[2]].is_placed:
 			x_win_count += 1
@@ -57,6 +59,7 @@ func check_if_won() -> void:
 			
 			return	# Exit the function if X wins
 			
+	# Check for O win, and if they did win: add a point and play an animation		
 	for condition in win_conditions:
 		if array_o[condition[0]].is_placed and array_o[condition[1]].is_placed and array_o[condition[2]].is_placed:
 			o_win_count += 1
@@ -71,3 +74,12 @@ func check_if_won() -> void:
 			array_o[condition[2]].animation_player.play("endgame")
 			
 			return # Exit the function if O wins
+	
+	# Check for tie, and if tied: add to tie count and play an animation
+	# *** Unfinished, still needs animation ***
+	if grid_count >= 9:
+		tie_count += 1
+		tie_count_label.text = str(tie_count)
+			
+func count_grid():
+	grid_count += 1
