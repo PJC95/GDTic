@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn340sssvh4fe"]
+
+[ext_resource type="Script" path="res://scripts/grid.gd" id="1_r23ef"]
+[ext_resource type="Texture2D" uid="uid://dfscrsiy16b6b" path="res://assets/sprites/grid.png" id="1_ss2ux"]
+
+[sub_resource type="Animation" id="Animation_f2gu8"]
+resource_name = "tie"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_v2nr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qhfy"]
+_data = {
+"RESET": SubResource("Animation_v2nr6"),
+"tie": SubResource("Animation_f2gu8")
+}
+
+[node name="Grid" type="Node2D"]
+script = ExtResource("1_r23ef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -81)
+scale = Vector2(11.997, 11.997)
+texture = ExtResource("1_ss2ux")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_5qhfy")
+}

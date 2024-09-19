@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwp2bfk6d1t6s"]
 
 [ext_resource type="Texture2D" uid="uid://by3pj775l43je" path="res://assets/sprites/background.png" id="1_kjpkm"]
-[ext_resource type="Texture2D" uid="uid://dfscrsiy16b6b" path="res://assets/sprites/grid.png" id="2_biqxr"]
+[ext_resource type="PackedScene" uid="uid://dn340sssvh4fe" path="res://scenes/grid.tscn" id="2_pvonw"]
 [ext_resource type="PackedScene" uid="uid://b2asx7oll6cxj" path="res://scenes/o.tscn" id="5_k8wbj"]
 [ext_resource type="PackedScene" uid="uid://hno083gto2fs" path="res://scenes/x.tscn" id="6_debft"]
 
@@ -16,10 +16,7 @@ texture = ExtResource("1_kjpkm")
 position = Vector2(-0.00347189, 0.00617027)
 scale = Vector2(0.0277838, 0.0493637)
 
-[node name="Grid" type="Sprite2D" parent="."]
-position = Vector2(0, -81)
-scale = Vector2(11.997, 11.997)
-texture = ExtResource("2_biqxr")
+[node name="Grid" parent="." instance=ExtResource("2_pvonw")]
 
 [node name="Labels" type="Node" parent="."]
 

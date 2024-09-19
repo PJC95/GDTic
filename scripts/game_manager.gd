@@ -32,6 +32,8 @@ func check_if_won() -> void:
 	var array_o: Array = [$"../Main/Os/O", $"../Main/Os/O2", $"../Main/Os/O3", $"../Main/Os/O4", 
 	$"../Main/Os/O5", $"../Main/Os/O6", $"../Main/Os/O7", $"../Main/Os/O8", $"../Main/Os/O9"]
 	
+	var grid = $"../Main/Grid"
+
 	var p1_win_count_label = $"../Main/Labels/P1Label/P1WinCount"
 	var p2_win_count_label = $"../Main/Labels/P2Label/P2WinCount"
 	var tie_count_label = $"../Main/Labels/TieLabel/TieCount"
@@ -80,6 +82,7 @@ func check_if_won() -> void:
 	if grid_count >= 9:
 		tie_count += 1
 		tie_count_label.text = str(tie_count)
+		grid.animation_player.play("tie")
 			
 func count_grid():
 	grid_count += 1
