@@ -26,7 +26,7 @@ func _process(_delta) -> void:
 		GameManager.turn = "X"
 		GameManager.check_if_placed()
 		GameManager.count_grid()
-		GameManager.check_if_won()
+		GameManager.check_if_ended()
 	
 	left_mouse_pressed = false
 		
