@@ -13,7 +13,7 @@ func _ready() -> void:
 	sprite_2d.visible = false
 
 # Checks if left mouse button is pressed
-# *** Change this to input map later ***
+# TODO: Change to input map
 func _input(InputEvent) -> void:
 	if InputEvent is InputEventMouseButton:
 		if InputEvent.button_index == MOUSE_BUTTON_LEFT:

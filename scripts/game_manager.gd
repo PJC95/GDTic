@@ -7,6 +7,7 @@ var tie_count: int = 0
 var player_1 = ""
 var player_2 = ""
 var grid_count: int = 0
+var is_win: bool = false
 
 # Checks if O or X is placed on a grid space; if so, blocks opposite from being placed there
 func check_if_placed() -> void:
@@ -58,7 +59,10 @@ func check_if_ended() -> void:
 			array_x[condition[1]].animation_player.play("endgame")
 			array_x[condition[2]].animation_player.play("endgame")
 			
+			is_win = true
+			
 			timer.start()
+			block_placements()
 			
 	# Check for O win, and if they did win: add a point and play an animation		
 	for condition in win_conditions:
@@ -74,16 +78,19 @@ func check_if_ended() -> void:
 			array_o[condition[1]].animation_player.play("endgame")
 			array_o[condition[2]].animation_player.play("endgame")
 			
+			is_win = true
+			
 			timer.start()
+			block_placements()
 	
 	# Check for tie, and if tied: add to tie count and play an animation
-	# TODO: This logic is bad, you can both fill the grid and win at the same time
-	if grid_count >= 9:
+	if grid_count >= 9 and is_win == false:
 		tie_count += 1
 		tie_count_label.text = str(tie_count)
 		grid.animation_player.play("tie")
 		
 		timer.start()
+		block_placements()
 		
 	return
 			
@@ -98,6 +105,7 @@ func new_game():
 	$"../Main/Os/O5", $"../Main/Os/O6", $"../Main/Os/O7", $"../Main/Os/O8", $"../Main/Os/O9"]
 	
 	grid_count = 0
+	is_win = false
 	
 	for i in range(len(array_x)):
 		array_x[i].is_placed = false
@@ -108,3 +116,15 @@ func new_game():
 		array_o[i].is_placed = false
 		array_o[i].can_be_placed = true
 		array_o[i].sprite_2d.visible = false
+		
+func block_placements():
+	var array_x: Array = [$"../Main/Xs/X", $"../Main/Xs/X2", $"../Main/Xs/X3", $"../Main/Xs/X4", 
+	$"../Main/Xs/X5", $"../Main/Xs/X6", $"../Main/Xs/X7", $"../Main/Xs/X8", $"../Main/Xs/X9"]
+	var array_o: Array = [$"../Main/Os/O", $"../Main/Os/O2", $"../Main/Os/O3", $"../Main/Os/O4", 
+	$"../Main/Os/O5", $"../Main/Os/O6", $"../Main/Os/O7", $"../Main/Os/O8", $"../Main/Os/O9"]
+	
+	for i in range(len(array_x)):
+		array_x[i].can_be_placed = false
+		
+	for i in range(len(array_o)):
+		array_o[i].can_be_placed = false
