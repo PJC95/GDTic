@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b2asx7oll6cxj" path="res://scenes/o.tscn" id="5_k8wbj"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="5_yi5r4"]
 [ext_resource type="PackedScene" uid="uid://hno083gto2fs" path="res://scenes/x.tscn" id="6_debft"]
-[ext_resource type="AudioStream" uid="uid://dclvltecvr4ld" path="res://sounds/XvO upbeat.wav" id="7_41x7w"]
-[ext_resource type="AudioStream" uid="uid://c2bv5j8ir7afx" path="res://sounds/XvO downbeat.wav" id="8_ovtmo"]
+[ext_resource type="AudioStream" uid="uid://bg3604ka3pmn7" path="res://sounds/happy.wav" id="7_7vbjf"]
+[ext_resource type="AudioStream" uid="uid://c2bv5j8ir7afx" path="res://sounds/sad.wav" id="8_fy8cv"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pqcl4")
@@ -134,9 +134,9 @@ one_shot = true
 script = ExtResource("5_yi5r4")
 
 [node name="GameStart" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_41x7w")
+stream = ExtResource("7_7vbjf")
 
 [node name="GameEnd" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_ovtmo")
+stream = ExtResource("8_fy8cv")
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

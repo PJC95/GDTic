@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://v5b2qtiib7g6"]
+
+[ext_resource type="Texture2D" uid="uid://by3pj775l43je" path="res://assets/sprites/background.png" id="1_etfng"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_gmda8"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gmda8")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576.062, 324)
+scale = Vector2(35.9961, 20.25)
+texture = ExtResource("1_etfng")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 104.0
+offset_right = 643.0
+offset_bottom = 543.0
+text = "Created by:
+Paul Connolly
+
+Inspired by:
+playtictactoe.org
+
+Software:
+Godot Engine
+Aseprite
+FL Studio
+Magical 8bit Plug
+Google Docs
+Gemini
+ChatGPT
+
+Special Thanks:
+develop.games"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 61.0
+offset_bottom = 47.0
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

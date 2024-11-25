@@ -1,4 +1,0 @@
-- pjc
-- nicole
-- godot
-- aseprite
