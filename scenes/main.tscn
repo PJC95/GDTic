@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwp2bfk6d1t6s"]
+[gd_scene load_steps=10 format=3 uid="uid://cwp2bfk6d1t6s"]
 
 [ext_resource type="Texture2D" uid="uid://by3pj775l43je" path="res://assets/sprites/background.png" id="1_kjpkm"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_pqcl4"]
 [ext_resource type="PackedScene" uid="uid://dn340sssvh4fe" path="res://scenes/grid.tscn" id="2_pvonw"]
+[ext_resource type="FontFile" uid="uid://c58wobc0yqopq" path="res://assets/fonts/PixelOperator8.ttf" id="4_scwti"]
 [ext_resource type="PackedScene" uid="uid://b2asx7oll6cxj" path="res://scenes/o.tscn" id="5_k8wbj"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="5_yi5r4"]
 [ext_resource type="PackedScene" uid="uid://hno083gto2fs" path="res://scenes/x.tscn" id="6_debft"]
@@ -26,48 +27,55 @@ scale = Vector2(0.0277838, 0.0493637)
 [node name="Labels" type="Node" parent="."]
 
 [node name="P1Label" type="Label" parent="Labels"]
-offset_left = -176.0
-offset_top = 160.0
-offset_right = -81.0
-offset_bottom = 183.0
+offset_left = -208.0
+offset_top = 144.0
+offset_right = -52.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("4_scwti")
+theme_override_font_sizes/font_size = 0
 text = "PLAYER 1 (*)"
 
 [node name="P1WinCount" type="Label" parent="Labels/P1Label"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 24.0
-offset_right = 72.0
-offset_bottom = 47.0
+offset_left = 72.0
+offset_top = 32.0
+offset_right = 86.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("4_scwti")
 text = "0"
 
 [node name="P2Label" type="Label" parent="Labels"]
-offset_left = 80.0
-offset_top = 160.0
-offset_right = 175.0
-offset_bottom = 183.0
+offset_left = 56.0
+offset_top = 144.0
+offset_right = 212.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("4_scwti")
 text = "PLAYER 2 (*)"
 
 [node name="P2WinCount" type="Label" parent="Labels/P2Label"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 24.0
-offset_right = 80.0
-offset_bottom = 47.0
+offset_left = 72.0
+offset_top = 32.0
+offset_right = 86.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("4_scwti")
 text = "0"
 
 [node name="TieLabel" type="Label" parent="Labels"]
-offset_left = -16.0
-offset_top = 160.0
-offset_right = 72.0
-offset_bottom = 183.0
+offset_left = -19.0
+offset_top = 144.0
+offset_right = 19.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("4_scwti")
 text = "TIE"
 
 [node name="TieCount" type="Label" parent="Labels/TieLabel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 48.0
-offset_bottom = 47.0
+offset_left = 12.0
+offset_top = 32.0
+offset_right = 26.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("4_scwti")
 text = "0"
 
 [node name="Xs" type="Node" parent="."]
