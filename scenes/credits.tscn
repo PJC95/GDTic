@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://v5b2qtiib7g6"]
+[gd_scene load_steps=4 format=3 uid="uid://v5b2qtiib7g6"]
 
 [ext_resource type="Texture2D" uid="uid://by3pj775l43je" path="res://assets/sprites/background.png" id="1_etfng"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_gmda8"]
+[ext_resource type="FontFile" uid="uid://c58wobc0yqopq" path="res://assets/fonts/PixelOperator8.ttf" id="3_oyco3"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -15,17 +16,23 @@ texture = ExtResource("1_etfng")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 104.0
-offset_right = 643.0
-offset_bottom = 543.0
+offset_left = 440.0
+offset_top = 88.0
+offset_right = 720.0
+offset_bottom = 560.0
+theme_override_fonts/font = ExtResource("3_oyco3")
 text = "Created by:
+
 Paul Connolly
 
+
 Inspired by:
+
 playtictactoe.org
 
+
 Software:
+
 Godot Engine
 Aseprite
 FL Studio
@@ -34,7 +41,10 @@ Google Docs
 Gemini
 ChatGPT
 
+
 Special Thanks:
+
+Jayvee Enaguas (Font)
 develop.games"
 horizontal_alignment = 1
 
@@ -42,8 +52,9 @@ horizontal_alignment = 1
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 61.0
-offset_bottom = 47.0
+offset_right = 80.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_oyco3")
 text = "Back"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

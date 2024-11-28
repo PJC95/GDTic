@@ -1,4 +1,9 @@
 extends Control
+@onready var button = $Button
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Button.grab_focus()
 
 # If X is chosen, change to main game scene, with X taking the first turn
 func _on_choice_x_pressed() -> void:
@@ -25,3 +30,6 @@ func _on_choice_x_mouse_exited() -> void:
 	
 func _on_choice_o_mouse_exited() -> void:
 	$ChoiceO.release_focus()
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

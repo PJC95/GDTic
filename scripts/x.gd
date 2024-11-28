@@ -9,7 +9,8 @@ extends Node2D
 var left_mouse_pressed: bool = false
 var mouse_in_area: bool = false
 
-# Set node to be invisible by default
+# Called when the node enters the scene tree for the first time.
+# Sets the node to be invisible by default
 func _ready() -> void:
 	sprite_2d.visible = false
 
