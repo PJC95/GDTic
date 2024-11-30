@@ -4,7 +4,7 @@ extends Node2D
 @onready var is_placed: bool = false
 @onready var can_be_placed: bool = true
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var left_mouse_pressed: bool = false
 var mouse_in_area: bool = false
@@ -15,11 +15,9 @@ func _ready() -> void:
 	sprite_2d.visible = false
 
 # Checks if left mouse button is pressed
-# TODO: Change to input map
-func _input(InputEvent) -> void:
-	if InputEvent is InputEventMouseButton:
-		if InputEvent.button_index == MOUSE_BUTTON_LEFT:
-			left_mouse_pressed = InputEvent.pressed
+func _input(event) -> void:
+	if event.is_action_pressed("select"):
+		left_mouse_pressed = true
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:

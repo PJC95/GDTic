@@ -4,8 +4,8 @@ var turn: String = ""			# Determines whose turn it is
 var x_win_count: int = 0		# Tracks X wins
 var o_win_count: int = 0		# Tracks O wins
 var tie_count: int = 0			# Tracks ties
-var player_1 = ""				# Determines which symbol Player 1 will be
-var player_2 = ""				# Determines which symbol Player 2 will be
+var player_1: String = ""		# Determines which symbol Player 1 will be
+var player_2: String = ""		# Determines which symbol Player 2 will be
 var grid_count: int = 0			# Tracks # of placements
 var is_win: bool = false		# Tracks if the game ended due to a win
 var can_be_played: bool = true	# Determines if the player move sound can be played
@@ -106,7 +106,7 @@ func check_if_ended() -> void:
 func count_grid() -> void:
 	grid_count += 1
 	
-func new_game():
+func new_game() -> void:
 	var array_x: Array = [$"../Main/Xs/X", $"../Main/Xs/X2", $"../Main/Xs/X3", $"../Main/Xs/X4", 
 	$"../Main/Xs/X5", $"../Main/Xs/X6", $"../Main/Xs/X7", $"../Main/Xs/X8", $"../Main/Xs/X9"]
 	var array_o: Array = [$"../Main/Os/O", $"../Main/Os/O2", $"../Main/Os/O3", $"../Main/Os/O4", 
@@ -127,7 +127,7 @@ func new_game():
 		array_o[i].sprite_2d.visible = false
 		
 # Stops players from making moves during the endgame sequence
-func block_placements():
+func block_placements() -> void:
 	var array_x: Array = [$"../Main/Xs/X", $"../Main/Xs/X2", $"../Main/Xs/X3", $"../Main/Xs/X4", 
 	$"../Main/Xs/X5", $"../Main/Xs/X6", $"../Main/Xs/X7", $"../Main/Xs/X8", $"../Main/Xs/X9"]
 	var array_o: Array = [$"../Main/Os/O", $"../Main/Os/O2", $"../Main/Os/O3", $"../Main/Os/O4", 
@@ -140,13 +140,13 @@ func block_placements():
 		array_o[i].can_be_placed = false
 
 # Plays a "happy" jingle
-func good_theme():
-	var game_start = $"../Main/GameStart"
+func good_theme() -> void:
+	var game_start: AudioStreamPlayer2D = $"../Main/GameStart"
 	
 	game_start.play()
 
 # Plays a "sad" jingle
-func bad_theme():
-	var game_end = $"../Main/GameEnd"
+func bad_theme() -> void:
+	var game_end: AudioStreamPlayer2D = $"../Main/GameEnd"
 	
 	game_end.play()
