@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_17ytt"]
 [ext_resource type="Texture2D" uid="uid://by3pj775l43je" path="res://assets/sprites/background.png" id="1_j3qfr"]
-[ext_resource type="Texture2D" uid="uid://deem0xc2k4s3j" path="res://assets/sprites/gdtic banner.png" id="3_54ycx"]
+[ext_resource type="Texture2D" uid="uid://deem0xc2k4s3j" path="res://assets/sprites/banner.png" id="3_54ycx"]
 [ext_resource type="FontFile" uid="uid://c58wobc0yqopq" path="res://assets/fonts/PixelOperator8.ttf" id="4_lhjbu"]
 
 [node name="Menu" type="Control"]

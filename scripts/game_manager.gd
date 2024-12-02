@@ -86,7 +86,7 @@ func check_if_ended() -> void:
 			
 			timer.start()
 			block_placements()
-			good_theme()
+			bad_theme()
 	
 	# Check for tie, and if tied: add to tie count and play animation + sound
 	if grid_count >= 9 and is_win == false:
@@ -98,7 +98,7 @@ func check_if_ended() -> void:
 		
 		timer.start()
 		block_placements()
-		bad_theme()
+		neutral_theme()
 		
 	return
 			
@@ -141,12 +141,18 @@ func block_placements() -> void:
 
 # Plays a "happy" jingle
 func good_theme() -> void:
-	var game_start: AudioStreamPlayer2D = $"../Main/GameStart"
+	var good_theme: AudioStreamPlayer2D = $"../Main/GoodTheme"
 	
-	game_start.play()
+	good_theme.play()
 
 # Plays a "sad" jingle
 func bad_theme() -> void:
-	var game_end: AudioStreamPlayer2D = $"../Main/GameEnd"
+	var bad_theme: AudioStreamPlayer2D = $"../Main/BadTheme"
 	
-	game_end.play()
+	bad_theme.play()
+	
+# Plays a neutral jingle
+func neutral_theme() -> void:
+	var neutral_theme: AudioStreamPlayer2D = $"../Main/NeutralTheme"
+	
+	neutral_theme.play()

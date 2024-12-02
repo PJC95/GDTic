@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bg3604ka3pmn7"
-path="res://.godot/imported/happy.wav-3872fab22120db9e9438cfb6e0062a49.sample"
+uid="uid://cj7aequjf7yyt"
+path="res://.godot/imported/move1.wav-214b42822e4e75cc80b22fe4501b8973.sample"
 
 [deps]
 
-source_file="res://sounds/happy.wav"
-dest_files=["res://.godot/imported/happy.wav-3872fab22120db9e9438cfb6e0062a49.sample"]
+source_file="res://assets/sounds/move1.wav"
+dest_files=["res://.godot/imported/move1.wav-214b42822e4e75cc80b22fe4501b8973.sample"]
 
 [params]
 

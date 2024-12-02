@@ -9,7 +9,7 @@ func _ready() -> void:
 	p1_label.text = "Player 1 (" + str(GameManager.player_1) + ")"
 	p2_label.text = "Player 2 (" + str(GameManager.player_2) + ")"
 	
-	GameManager.good_theme()
+	GameManager.neutral_theme()
 	button.grab_focus()
 
 # If "back" button clicked, return to "choose side" screen

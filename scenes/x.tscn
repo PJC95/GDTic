@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7qpk5egryi1q" path="res://assets/sprites/X.png" id="1_48n7c"]
 [ext_resource type="Script" path="res://scripts/x.gd" id="1_yua2l"]
-[ext_resource type="AudioStream" uid="uid://cj7aequjf7yyt" path="res://sounds/move1.wav" id="3_8gu6n"]
+[ext_resource type="AudioStream" uid="uid://cj7aequjf7yyt" path="res://assets/sounds/move1.wav" id="3_8gu6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyomy"]
 size = Vector2(94, 94)
