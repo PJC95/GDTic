@@ -20,11 +20,13 @@ func check_if_placed() -> void:
 	# If an X has been placed on the grid, an O cannot be placed in the same spot
 	for i in range(len(array_x)):
 		if array_x[i].is_placed:
+			array_x[i].can_be_placed = false
 			array_o[i].can_be_placed = false
 			
 	# If an O has been placed on the grid, an X cannot be placed in the same spot
 	for i in range(len(array_o)):
 		if array_o[i].is_placed:
+			array_o[i].can_be_placed = false
 			array_x[i].can_be_placed = false
 
 # Check for a win or tie, then add a point to the respective counter and play an animation + sound

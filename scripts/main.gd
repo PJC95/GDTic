@@ -9,6 +9,11 @@ func _ready() -> void:
 	p1_label.text = "Player 1 (" + str(GameManager.player_1) + ")"
 	p2_label.text = "Player 2 (" + str(GameManager.player_2) + ")"
 	
+	GameManager.x_win_count = 0
+	GameManager.o_win_count = 0
+	GameManager.tie_count = 0
+	GameManager.grid_count = 0
+	
 	GameManager.neutral_theme()
 	button.grab_focus()
 
